@@ -25,12 +25,13 @@
 
     <script>
         partytown = {
+          debug: true,
           forward: ['dataLayer.push'],
-          lib: '{{ request.origin }}/apps/partytown/',
+          lib: '/apps/partytown/',
         };
     </script>
-    <script src="{{ 'partytown.js' | asset_url }}"></script>
-    {% comment %} <script type="module">
+
+    <script type="module">
       import { partytownSnippet } from "{{ 'partytown.js' | asset_url }}";
       
       (function ( d, t, n ) {
@@ -38,7 +39,7 @@
           d.head.appendChild( n )
       })( document, 'script' );
   
-    </script> {% endcomment %}
+    </script>
     
     <script type="text/partytown">
       console.log('Hello from Partytown!')
