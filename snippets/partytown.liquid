@@ -1,10 +1,5 @@
-
-<script>
-    window.partytown = {
-        debug: true,
-        forward: [
-            'dataLayer.push', 
-            '_learnq.push',
+{%- comment -%}
+ '_learnq.push',
             'abandonment_tracked',
             'ShopifyAnalytics',
             'ShopifyAnalytics.meta',
@@ -31,6 +26,13 @@
             'BOOMR.url',
             'BOOMR.snippetMethod',
             'BOOMR_onload'
+{%- endcomment -%}
+<script>
+    window.partytown = {
+        debug: true,
+        forward: [
+            'dataLayer.push', 
+           
         ],
         lib: '/apps/partytown/',
         resolveUrl: (url, location, type) => {
@@ -52,7 +54,7 @@
         d.head.appendChild( n )
     })( document, 'script' );
 </script>
-
+{% comment %} 
 <script>
     (function() {
       const observer = new MutationObserver(function(mutations) {
@@ -80,4 +82,4 @@
         subtree: true
       });
     }());
-  </script>
+  </script> {% endcomment %}
