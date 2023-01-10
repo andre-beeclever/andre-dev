@@ -2,7 +2,36 @@
 <script>
     window.partytown = {
         debug: true,
-        // forward: ['dataLayer.push', '_learnq.push'],
+        forward: [
+            'dataLayer.push', 
+            '_learnq.push',
+            'abandonment_tracked',
+            'ShopifyAnalytics',
+            'ShopifyAnalytics.meta',
+            'ShopifyAnalytics.meta.currency',
+            'ShopifyAnalytics.meta[attr]',
+            'ShopifyAnalytics.merchantGoogleAnalytics',
+            'gaDevIds',
+            'ShopifyAnalytics.lib',
+            'trekkie',
+            'trekkie.methods',
+            'trekkie.factory',
+            'trekkie.load',
+            'trekkie.config',
+            'trekkie.config.initialDocumentCookie',
+            'BOOMR',
+            'BOOMR.snippetStart',
+            'BOOMR.snippetExecuted',
+            'BOOMR.snippetVersion',
+            'BOOMR.application',
+            'BOOMR.themeName',
+            'BOOMR.themeVersion',
+            'BOOMR.shopId',
+            'BOOMR.themeId',
+            'BOOMR.url',
+            'BOOMR.snippetMethod',
+            'BOOMR_onload'
+        ],
         lib: '/apps/partytown/',
         resolveUrl: (url, location, type) => {
             if (type === 'script') {
@@ -23,3 +52,32 @@
         d.head.appendChild( n )
     })( document, 'script' );
 </script>
+
+<script>
+    (function() {
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType !== 1 || node.tagName !== 'SCRIPT') {
+              return;
+            }
+            if (node.getAttribute('src')) {
+              return;
+            }
+            node.type = 'text/partytown';
+            node.addEventListener('beforescriptexecute', beforeScriptExecuteListener);
+            function beforeScriptExecuteListener(evt) {
+              if(node.getAttribute('type') === 'text/partytown') {
+                evt.preventDefault();
+              }
+              node.removeEventListener('beforescriptexecute', beforeScriptExecuteListener);
+            }
+          });
+        });
+      });
+      observer.observe(document.head, {
+        childList: true,
+        subtree: true
+      });
+    }());
+  </script>
