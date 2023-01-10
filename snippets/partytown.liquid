@@ -37,7 +37,7 @@
         lib: '/apps/partytown/',
         resolveUrl: (url, location, type) => {
             if (type === 'script') {
-                var proxyUrl = new URL('https://my-reverse-proxy.com/');
+                var proxyUrl = new URL('{{ request.origin }}/apps/partytown/proxy');
                 proxyUrl.searchParams.append('url', url.href);
                 console.log(url.href, proxyUrl)
                 return proxyUrl;
