@@ -23,23 +23,7 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    <script>
-        window.partytown = {
-          debug: true,
-          forward: ['dataLayer.push'],
-          lib: '/apps/partytown/',
-        };
-    </script>
-
-    <script type="module">
-      import { partytownSnippet } from "{{ 'partytown.js' | asset_url }}";
-      
-      (function ( d, t, n ) {
-          ( n = d.createElement(t) ).innerHTML = partytownSnippet();
-          d.head.appendChild( n )
-      })( document, 'script' );
-  
-    </script>
+    {% render 'partytown' %}
     
     <script type="text/partytown">
       console.log('Hello from Partytown!')
