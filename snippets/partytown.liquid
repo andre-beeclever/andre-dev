@@ -39,6 +39,7 @@
             if (type === 'script') {
                 var proxyUrl = new URL('https://my-reverse-proxy.com/');
                 proxyUrl.searchParams.append('url', url.href);
+                console.log(url.href, proxyUrl)
                 return proxyUrl;
             }
             return url;
