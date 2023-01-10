@@ -4,9 +4,14 @@
         debug: true,
         // forward: ['dataLayer.push', '_learnq.push'],
         lib: '/apps/partytown/',
-        {% comment %} resolveUrl: (url, location, type) => {
-            'static.klaviyo.com', 'static-tracking.klaviyo.com'
-        } {% endcomment %}
+        resolveUrl: (url, location, type) => {
+            if (type === 'script') {
+                var proxyUrl = new URL('https://my-reverse-proxy.com/');
+                proxyUrl.searchParams.append('url', url.href);
+                return proxyUrl;
+            }
+            return url;
+        }
     };
 </script>
 
