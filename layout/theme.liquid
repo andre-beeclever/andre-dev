@@ -24,10 +24,10 @@
     </title>
 
     <script>
-        window.partytown = {
-        forward: ['dataLayer.push'],
-        lib: '{{ request.origin }}/apps/partytown',
-      };
+        partytown = {
+          forward: ['dataLayer.push'],
+          lib: '{{ request.origin }}/apps/partytown',
+        };
     </script>
     <script type="module">
       import { partytownSnippet } from "{{ 'partytown.js' | asset_url }}";
