@@ -37,6 +37,7 @@
       })(window,document,'script','dataLayer','GTM-WV544RQ');</script>
       <!-- End Google Tag Manager -->
 
+
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
@@ -304,5 +305,18 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <script
+      async type="text/javascript"
+      src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=PUBLIC_API_KEY"
+    ></script>
+      
+    <script>
+      var _learnq = _learnq || [];
+      _learnq.push(['identify', {
+        // Change the line below to dynamically print the user's email.
+        '$email' : '{{ email }}'
+      }]);
+    </script>
   </body>
 </html>
