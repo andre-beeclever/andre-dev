@@ -23,6 +23,26 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
+    <script>
+      partytown = {
+        lib: '{{ request.origin }}/apps/partytown'
+        forward: ['dataLayer.push'],
+      };
+    </script>
+    <script type="module">
+      import { partytownSnippet } from "{{ 'partytown.js' | asset_url }}";
+      
+      (function ( d, t, n ) {
+          ( n = d.createElement(t) ).innerHTML = partytownSnippet();
+          d.head.appendChild( n )
+      })( document, 'script' );
+  
+    </script>
+    
+    <script type="text/partytown">
+      console.log('Hello from Partytown!')
+    </script>
+
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
