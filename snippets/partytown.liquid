@@ -34,7 +34,7 @@
             'dataLayer.push', 
            
         ],
-        lib: '/apps/partytown/',
+        lib: '/apps/partytown/assets/',
         resolveUrl: (url, location, type) => {
             if (type === 'script') {
                 var proxyUrl = new URL('{{ request.origin }}/apps/partytown/proxy');
