@@ -37,10 +37,11 @@
         ],
         lib: '/apps/partytown/assets/',
         resolveUrl: (url, location, type) => {
-            console.log(url, location, type)
+            console.log(url)
             if (type === 'script') {
                 var proxyUrl = new URL('{{ request.origin }}/apps/partytown/proxy');
                 proxyUrl.searchParams.append('url', url.href);
+                console.log('proxied to',proxyUrl)
                 return proxyUrl;
             }
             return url;
