@@ -22,15 +22,15 @@
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
-
-    {% render 'partytown' %}
-    
-    <script type="text/partytown">
-      console.log('Hello from Partytown!')
-    </script>
-
+    {% if settings.enable_partytown %}
+      {% render 'partytown' %}
+      
+      <script type="text/partytown">
+        console.log('Hello from Partytown!')
+      </script>
+    {% endif %}
     <!-- Google Tag Manager -->
-    <script type="text/partytown">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script {% if settings.enable_partytown %} type="text/partytown" {% endif %}>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -305,10 +305,9 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <script async {% if settings.enable_partytown %} type="text/partytown" {% endif %}  src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=YwNUyf"></script>
 
-    <script async type="text/partytown"  src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=YwNUyf"></script>
-
-    <script type="text/partytown">
+    <script {% if settings.enable_partytown %} type="text/partytown" {% endif %}>
       var _learnq = _learnq || [];
       _learnq.push(['identify', {
         // Change the line below to dynamically print the user's email.

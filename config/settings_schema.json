@@ -1511,5 +1511,16 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       }
     ]
+  },
+  {
+      "name": "Partytown",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable_partytown",
+          "label": "Enable Partytown",
+          "default": false
+        }
+      ]
   }
 ]
