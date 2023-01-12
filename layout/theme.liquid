@@ -305,10 +305,10 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
+    {% comment %}
     <script async type="text/javascript"  src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=YwNUyf"></script>
 
-    {% comment %} <script>
+    <script>
       var _learnq = _learnq || [];
       _learnq.push(['identify', {
         // Change the line below to dynamically print the user's email.
