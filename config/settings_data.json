@@ -121,7 +121,7 @@
     "cart_type": "notification",
     "show_vendor": false,
     "show_cart_note": true,
-    "enable_partytown": true,
+    "enable_partytown": false,
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
