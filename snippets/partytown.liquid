@@ -34,32 +34,6 @@
             'dataLayer.push', 
             // '_learnq.push',
             // '_klOnsite.push',
-            'abandonment_tracked',
-            'ShopifyAnalytics',
-            'ShopifyAnalytics.meta',
-            'ShopifyAnalytics.meta.currency',
-            'ShopifyAnalytics.meta[attr]',
-            'ShopifyAnalytics.merchantGoogleAnalytics',
-            'gaDevIds',
-            'ShopifyAnalytics.lib',
-            'trekkie',
-            'trekkie.methods',
-            'trekkie.factory',
-            'trekkie.load',
-            'trekkie.config',
-            'trekkie.config.initialDocumentCookie',
-            'BOOMR',
-            'BOOMR.snippetStart',
-            'BOOMR.snippetExecuted',
-            'BOOMR.snippetVersion',
-            'BOOMR.application',
-            'BOOMR.themeName',
-            'BOOMR.themeVersion',
-            'BOOMR.shopId',
-            'BOOMR.themeId',
-            'BOOMR.url',
-            'BOOMR.snippetMethod',
-            'BOOMR_onload'
         ],
         lib: '/apps/partytown/assets/',
         resolveUrl: (url, location, type) => {
@@ -81,7 +55,7 @@
         d.head.appendChild( n )
     })( document, 'script' );
 </script>
-
+{% comment %} 
 <script>
     (function() {
       const observer = new MutationObserver(function(mutations) {
@@ -109,4 +83,4 @@
         subtree: true
       });
     }());
-  </script> 
+  </script> {% endcomment %}
