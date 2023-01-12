@@ -40,7 +40,6 @@
             if (type === 'script') {
                 var proxyUrl = new URL('{{ request.origin }}/apps/partytown/proxy');
                 proxyUrl.searchParams.append('url', url.href);
-                console.log(url.href, proxyUrl)
                 return proxyUrl;
             }
             return url;
